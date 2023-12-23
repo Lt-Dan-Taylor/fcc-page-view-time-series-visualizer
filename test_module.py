@@ -58,8 +58,8 @@ class BarPlotTestCase(unittest.TestCase):
         self.assertEqual(actual, expected, "Expected bar plot secondary labels to be '2016', '2017', '2018', '2019'")
 
     def test_bar_plot_number_of_bars(self):
-        actual = len([rect for rect in self.ax.get_children() if isinstance(rect, mpl.patches.Rectangle)])
-        expected = 49
+        actual = len([rect for rect in self.ax.get_children() if isinstance(rect, mpl.patches.Rectangle) and rect.get_height() > 0])
+        expected = 45
         self.assertEqual(actual, expected, "Expected a different number of bars in bar chart.")
 
 
